@@ -1,0 +1,52 @@
+header
+{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  height:200px;
+  
+}
+.logo
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width:50%;
+}
+nav
+{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 50%;
+}
+nav h3
+{
+  font-weight: 500;
+  margin-right:30px;
+}
+.section1
+{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.232);
+  width: 100%;
+}
+.section2
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width:60%;
+  border: 1px solid rgba(0, 0, 0, 0.268);
+  border-radius: 10px;
+  height:60px;
+}
+.section2 .subsection
+{
+  border-right: 1px solid rgba(0, 0, 0, 0.362);
+  width: 35%;
+}
