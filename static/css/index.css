@@ -50,3 +50,35 @@ nav h3
   border-right: 1px solid rgba(0, 0, 0, 0.362);
   width: 35%;
 }
+.section2 .subsection .destinationbar
+{
+  display: flex;
+  align-items: center;
+
+  height: 100%;
+  margin-left: 10px;
+}
+.destinationbar .destinationinput
+{
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  height: auto;
+  padding: 0px;
+  margin-left: 20px;
+  margin-top: 0px;
+}
+.destinationinput h3
+{
+  color: grey;
+  font-weight: 500;
+  margin-top: -5px;
+  font-size: 16px;
+}
+.destinationinput input
+{
+  margin-top: -10px;
+  border: none;
+  outline: none;
+}
