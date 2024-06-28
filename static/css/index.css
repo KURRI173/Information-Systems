@@ -110,3 +110,36 @@ nav h3
   margin-left: 5px;
   color: rgba(0, 0, 0, 0.622);
 }
+.subsection:nth-child(3)
+{
+  display:flex;
+}
+.roomsection:nth-child(1)
+{
+  margin-left: 20px;
+}
+.subsection .roomsection
+{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.roomsection input
+{
+  outline: none;
+}
+.roomsection button
+{
+  width: 100px;
+  height: 50px;
+  background-color: rgb(23, 127, 239);
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 17px;
+}
+input::placeholder
+{
+  font-weight: 800;
+}
