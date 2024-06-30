@@ -189,3 +189,26 @@ input::placeholder
   border: 1px solid rgba(0, 0, 0, 0.222);
    box-shadow:0px 20px 10px white;
 }
+.hotelpanel
+{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
+
+  height: auto;
+}
+.hotelpanel .hotelsubpanel
+{
+  width:24vw;
+  height: 60vh;
+  background-color: red;
+  border-radius: 8px;
+}
+.hotelsection
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
