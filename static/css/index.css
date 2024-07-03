@@ -233,12 +233,26 @@ input::placeholder
   width:18vw;
   height: 30vh;
 }
-.hotelsubpanel2 .hotelimage img 
+.hotelsubpanel2 .hotelimg img 
 {
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
+}
+.hotelsubpanel2 .hotelimage
+{
+  position: relative;
+}
+.hotelsubpanel2 .hotelimage h3
+{
+   position: absolute;
+   top: 5px;
+   left: 10px;
+   background-color: aliceblue;
+   width:50px;
+   border-radius: 5px;
+   text-align: center;
 }
 .hotelimage
 {
