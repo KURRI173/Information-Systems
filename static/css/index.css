@@ -213,8 +213,9 @@ input::placeholder
 }
 .hotelsection h1
 {
-  margin-left: -800px;
   font-size: 27px;
+  width: 80%;
+  text-align: left;
 }
 .hotelpanel .hotelsubpanel
 {
@@ -230,9 +231,9 @@ input::placeholder
 .hotelpanel .hotelsubpanel2
 {
   width:18vw;
-  height: 70vh;
+  height: 30vh;
 }
-.hotelsubpanel2 .hotelimg img 
+.hotelsubpanel2 .hotelimage img 
 {
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
