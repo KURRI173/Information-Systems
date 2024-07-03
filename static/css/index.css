@@ -250,9 +250,10 @@ input::placeholder
    top: 5px;
    left: 10px;
    background-color: aliceblue;
-   width:50px;
+   width:auto;
    border-radius: 5px;
    text-align: center;
+   padding: 5px;
 }
 .hotelimage
 {
