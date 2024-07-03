@@ -227,6 +227,18 @@ input::placeholder
   flex-direction: column;
   border:1px solid rgba(0, 0, 0, 0.121);
 }
+.hotelpanel .hotelsubpanel2
+{
+  width:18vw;
+  height: 70vh;
+}
+.hotelsubpanel2 .hotelimg img 
+{
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
 .hotelimage
 {
   width: 100%;
