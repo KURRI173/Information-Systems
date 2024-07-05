@@ -8,20 +8,25 @@ app.config['MONGO_URI'] = 'mongodb://localhost:27017/mydatabase'
 mongo = MongoClient(app.config['MONGO_URI'])
 db = mongo.get_database()
 
-# Route for home
+
 @app.route('/')
 def home():
    return render_template('index.html')
 
-# Route for login
+
 @app.route('/login')
 def login():
    return render_template('login.html')
 
-# Route for login
+
 @app.route('/register')
 def register():
    return render_template('register.html')
+
+@app.route('/favourites')
+def favourites():
+   return render_template('favourites.html')
+
 
 
 if __name__ == '__main__':
