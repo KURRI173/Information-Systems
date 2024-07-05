@@ -285,3 +285,25 @@ input::placeholder
   background-color:  rgb(23, 127, 239);
   color:white;
 }
+
+footer
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background-color: rgb(12, 12, 58);
+  margin-top: 200px;
+  color: white;
+}
+/* Footer section */
+footer .section1, .section2, .section3
+{
+display: flex;
+justify-content: center;
+flex-direction: column;
+align-items: flex-start;
+margin-left: 80px;
+width: 30%;
+font-size: 12px;
+}
