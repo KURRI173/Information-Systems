@@ -41,7 +41,7 @@ nav h3
   border-bottom: 1px solid rgba(0, 0, 0, 0.232);
   width: 100%;
 }
-.section2
+.sectiontwo
 {
   width: 100%;
   display: flex;
@@ -50,7 +50,7 @@ nav h3
   height: 100%;
   flex-direction: column;
 }
-.section2 .sectiontwotext
+.sectiontwo .sectiontwotext
 {
   display: flex;
   justify-content: flex-start;
@@ -72,7 +72,7 @@ nav h3
   font-size: 17px;
   font-weight: 500;
 }
-.section2 .searchbars
+.sectiontwo .searchbars
 {
   display: flex;
   justify-content: center;
@@ -82,12 +82,12 @@ nav h3
   border-radius: 10px;
   height:60px;
 }
-.section2 .subsection
+.sectiontwo .subsection
 {
   border-right: 1px solid rgba(0, 0, 0, 0.362);
   width: 35%;
 }
-.section2 .subsection .destinationbar
+.sectiontwo .subsection .destinationbar
 {
   display: flex;
   align-items: center;
@@ -300,6 +300,7 @@ footer .footersection
 {
   width: 60%;
   display: flex;
+  margin-top: 40px;
 }
 /* Footer section */
 .footersection .section1, .section2, .section3
