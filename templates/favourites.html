@@ -5,6 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Favourites</title>
     <link rel="stylesheet" href="static/css/index.css"/>
+    <style>
+        main
+        {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+       
+        }
+        main .favouritesection
+        {
+            width: 60%;
+        }
+        .favouritetour
+        {
+            border: 1px solid black;
+            width: 200px;
+            height: 150px;
+            border-radius: 6px;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        .favouritetour h4
+        {
+            margin-left: 20px;
+        }
+    </style>
 </head>
 <body>
      {% include('Components/header.html')%}
