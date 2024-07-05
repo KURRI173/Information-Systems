@@ -10,7 +10,7 @@
 main{
    width: 90%;
    display: flex;
-   justify-content: center;
+   justify-content: space-evenly;
    align-items: center;
    height: 100vh;
 }
@@ -19,7 +19,27 @@ main{
    display: flex;
    flex-direction: column;
    justify-content: center;
-   align-items: center;
+   align-items: flex-start;
+}
+.emailbox input
+{
+   border-radius: 5px;
+   width: 270px;
+   height: 30px;
+   border: none;
+   border: 1px solid rgba(0, 0, 0, 0.418);
+   margin-bottom: 10px;
+}
+button
+{
+   background-color: rgb(52, 143, 255);
+   color: white;
+   border-radius: 5px;
+   width: 280px;
+   height: 40px;
+   border: none;
+   border: 1px solid rgba(0, 0, 0, 0.418);
+   margin-bottom: 10px;
 }
 </style>
 <body>
@@ -27,10 +47,13 @@ main{
        <img src="static/Assets/loginbackground.avif"/>
        <div class="loginpanel">
          <h2>Hotel Booking Adventure</h2>
-         <h2>Hotel Booking Adventure</h2>
+         <h2>Unlock more savings as a member</h2>
          <div class="emailbox">
             <label>Log in or create account with your email</label>
             <input type="text" placeholder="Email"/>
+            <input type="text" placeholder="Password"/>
+            <button>Login</button>
+            <button>Register</button>
          </div>
        </div>
     </main>
