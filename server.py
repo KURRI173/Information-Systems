@@ -27,6 +27,10 @@ def register():
 def favourites():
    return render_template('favourites.html')
 
+@app.route('/destination')
+def destination():
+   path=request.args.get('name')
+   return render_template('destinationpage.html')
 
 
 if __name__ == '__main__':
