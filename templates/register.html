@@ -68,13 +68,15 @@ button a
          <h2><a href="/">Hotel Booking Adventure</a></h2>
          <h2>Unlock more savings as a member</h2>
          <div class="emailbox">
+            <form action="/register" method="POST">
             <label>Log in or create account with your email</label>
             <input type="text" placeholder="name" name="name"/>
             <input type="email" placeholder="Email" name="email"/>
             <input type="password" placeholder="Password" name="password"/>
             <input type="text" placeholder="Confirm Password" name="confirmpassword"/>     
-            <button><a href="/register">Register</a></button>
+            <button type="submit">Register</button>
             <button><a href="/login">Login</a></button>
+         </form>
          </div>
        </div>
     </main>
