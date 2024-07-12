@@ -20,7 +20,15 @@ def login():
 
 @app.route('/register' ,methods=['GET','POST'])
 def register():
+   if(request.method=='POST'):
+      name=request.args.get('name')
+      email=request.args.get('email')
+      password=request.args.get('password')
+      confirmPassword=request.args.get('confirmPassword')
+
+      print(name,email,password,confirmPassword)   
    return render_template('register.html')
+
 
 @app.route('/favourites')
 def favourites():
