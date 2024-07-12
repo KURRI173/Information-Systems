@@ -36,11 +36,10 @@ def login():
       else:
          user=db.users.find_one({"email":email})
          if(user):
-               
             if(user['password']!=password):
                return render_template('login.html',message="Wrong password")
             else:
-               return render_template('index.html',message="Login Successfull!")
+               return render_template('index.html',message="logout")
 
    return render_template('login.html',message="")
 
