@@ -31,19 +31,18 @@ def login():
       email=request.form.get('email')
       password=request.form.get('password')
       message=checkForValidationLogin(email,password)
-
       if(message):
          return render_template('login.html',message=message)
       else:
          user=db.users.find_one({"email":email})
          if(user):
-            if(user.password!=password):
+               
+            if(user['password']!=password):
                return render_template('login.html',message="Wrong password")
             else:
                return render_template('index.html',message="Login Successfull!")
 
-
-   return render_template('login.html')
+   return render_template('login.html',message="")
 
 
 @app.route('/register' ,methods=['GET','POST'])
