@@ -3,23 +3,22 @@ import os
 from pymongo import MongoClient 
 app = Flask(__name__)
 
-app.config['MONGO_URI'] = 'mongodb://localhost:27017/mydatabase'
+app.config['MONGO_URI'] = 'mongodb+srv://ashok1234:ashok1234@cluster0.kffhmzo.mongodb.net/'
 
-mongo = MongoClient(app.config['MONGO_URI'])
-db = mongo.get_database()
-
+client = MongoClient(app.config['MONGO_URI'])
+db = client['Hotelbooking']
 
 @app.route('/')
 def home():
    return render_template('index.html')
 
 
-@app.route('/login')
+@app.route('/login',methods=['GET','POST'])
 def login():
    return render_template('login.html')
 
 
-@app.route('/register')
+@app.route('/register' ,methods=['GET','POST'])
 def register():
    return render_template('register.html')
 
