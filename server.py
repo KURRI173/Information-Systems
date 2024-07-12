@@ -8,6 +8,18 @@ app.config['MONGO_URI'] = 'mongodb+srv://ashok1234:ashok1234@cluster0.kffhmzo.mo
 client = MongoClient(app.config['MONGO_URI'])
 db = client['Hotelbooking']
 
+class User:
+    def __init__(self, name, email,password):
+        self.name = name
+        self.email = email
+        self.password=password
+
+    def save(self):
+        user_dict = self.__dict__
+        result = db.users.insert_one(user_dict)
+        return result.inserted_id
+    
+
 @app.route('/')
 def home():
    return render_template('index.html')
@@ -26,18 +38,27 @@ def register():
       password=request.form.get('password')
       confirmPassword=request.form.get('confirmpassword')
       print(name,email,password,confirmPassword) 
+      message=checkForValidation(name,email,password,confirmPassword)
+
+      if(message):
+          return render_template('register.html',message=message)
+      else:
+          db.users.insert_one({"name":name,"email":email,"password":password})
+          return render_template('register.html',message="User registered successfully!")
 
    return render_template('register.html')
 
 def checkForValidation(name,email,password,confirmPassword):
    if(name==""):
       return "name is empty"
-   if(email==""):
-      return "name is empty"
-   if(password==""):
-      return "name is empty"
-   if(confirmPassword==""):
-      return "name is empty"
+   elif(email==""):
+      return "email is empty"
+   elif(password==""):
+      return "password is empty"
+   elif(confirmPassword==""):
+      return "confirm password is empty"
+   elif(confirmPassword!=password):
+      return "password not match"
    
 @app.route('/favourites')
 def favourites():
