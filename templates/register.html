@@ -68,7 +68,7 @@ button a
          <h2><a href="/">Hotel Booking Adventure</a></h2>
          <h2>Unlock more savings as a member</h2>
          <div class="emailbox">
-            <form action="/register" method="POST">
+         <form action="/register" method="POST">
             <label>Log in or create account with your email</label>
             <input type="text" placeholder="name" name="name"/>
             <input type="email" placeholder="Email" name="email"/>
@@ -76,7 +76,11 @@ button a
             <input type="text" placeholder="Confirm Password" name="confirmpassword"/>     
             <button type="submit">Register</button>
             <button><a href="/login">Login</a></button>
+         
+       
+
          </form>
+         <label style="text-align: center;width: 65%;">{{message}}</label>
          </div>
        </div>
     </main>

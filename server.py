@@ -46,7 +46,7 @@ def register():
           db.users.insert_one({"name":name,"email":email,"password":password})
           return render_template('register.html',message="User registered successfully!")
 
-   return render_template('register.html')
+   return render_template('register.html',message="")
 
 def checkForValidation(name,email,password,confirmPassword):
    if(name==""):
