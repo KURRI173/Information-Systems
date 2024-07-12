@@ -27,6 +27,22 @@ def home():
 
 @app.route('/login',methods=['GET','POST'])
 def login():
+   if(request.method=="POST"):
+      email=request.form.get('email')
+      password=request.form.get('password')
+      message=checkForValidationLogin(email,password)
+
+      if(message):
+         return render_template('login.html',message=message)
+      else:
+         user=db.users.find_one({"email":email})
+         if(user):
+            if(user.password!=password):
+               return render_template('login.html',message="Wrong password")
+            else:
+               return render_template('index.html',message="Login Successfull!")
+
+
    return render_template('login.html')
 
 
@@ -38,17 +54,27 @@ def register():
       password=request.form.get('password')
       confirmPassword=request.form.get('confirmpassword')
       print(name,email,password,confirmPassword) 
-      message=checkForValidation(name,email,password,confirmPassword)
+      message=checkForValidationRegister(name,email,password,confirmPassword)
 
       if(message):
           return render_template('register.html',message=message)
       else:
-          db.users.insert_one({"name":name,"email":email,"password":password})
-          return render_template('register.html',message="User registered successfully!")
+          user=db.users.find_one({"email":email})
+          if(user):
+              return render_template('register.html',message="User already registered!")
+          else:
+              db.users.insert_one({"name":name,"email":email,"password":password})
+              return render_template('register.html',message="User registered successfully!")
 
    return render_template('register.html',message="")
 
-def checkForValidation(name,email,password,confirmPassword):
+def checkForValidationLogin(email,password):
+   if(email==""):
+      return "email is empty"
+   elif(password==""):
+      return "password is empty"
+   
+def checkForValidationRegister(name,email,password,confirmPassword):
    if(name==""):
       return "name is empty"
    elif(email==""):
