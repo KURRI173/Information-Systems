@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify, send_from_directory,render_template
+from flask import Flask, request, jsonify, send_from_directory,render_template,session
 import os
 from pymongo import MongoClient 
 app = Flask(__name__)
@@ -7,6 +7,8 @@ app.config['MONGO_URI'] = 'mongodb+srv://ashok1234:ashok1234@cluster0.kffhmzo.mo
 
 client = MongoClient(app.config['MONGO_URI'])
 db = client['Hotelbooking']
+
+app.secret_key="123"
 
 class User:
     def __init__(self, name, email,password):
@@ -39,6 +41,8 @@ def login():
             if(user['password']!=password):
                return render_template('login.html',message="Wrong password")
             else:
+               session['user']=user['email']
+               print(session['user'])
                return render_template('index.html',message="logout")
 
    return render_template('login.html',message="")
@@ -86,18 +90,24 @@ def checkForValidationRegister(name,email,password,confirmPassword):
    
 @app.route('/favourites')
 def favourites():
-   return render_template('favourites.html')
+   path=request.args.get('name')
+   if(session['user']):
+         return render_template('favourites.html',message='Logout')
+   return render_template('favourites.html',message='')
 
 @app.route('/destination')
 def destination():
    path=request.args.get('name')
-   return render_template('destinationpage.html')
+   if(session['user']):
+      return render_template('destinationpage.html',message='Logout')
+   return render_template('destinationpage.html',message='')
 
 @app.route('/famous')
 def famous():
    path=request.args.get('name')
-   return render_template('famoussearches.html')
-
+   if(session['user']):
+         return render_template('famoussearches.html',message='Logout')
+   return render_template('famoussearches.html',message='')
 
 
 
