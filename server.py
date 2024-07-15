@@ -93,6 +93,13 @@ def destination():
    path=request.args.get('name')
    return render_template('destinationpage.html')
 
+@app.route('/famous')
+def famous():
+   path=request.args.get('name')
+   return render_template('famoussearches.html')
+
+
+
 
 if __name__ == '__main__':
     app.run(debug=True)    
