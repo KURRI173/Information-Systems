@@ -88,7 +88,7 @@ def checkForValidationRegister(name,email,password,confirmPassword):
    elif(confirmPassword!=password):
       return "password not match"
    
-@app.route('/favourites')
+@app.route('/favourites',methods=['GET','POST'])
 def favourites():
    path=request.args.get('name')
    if(session['user']):
@@ -105,10 +105,15 @@ def destination():
 @app.route('/famous')
 def famous():
    path=request.args.get('name')
-   if(session['user']):
+   if(session['user']!=''):
          return render_template('famoussearches.html',message='Logout')
-   return render_template('famoussearches.html',message='')
+   return render_template('famoussearches.html')
 
+
+@app.route('/logout')
+def logout():
+   session['user']=''
+   return render_template('index.html')
 
 
 if __name__ == '__main__':
