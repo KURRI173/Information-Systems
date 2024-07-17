@@ -21,9 +21,9 @@ function AddFavourites(element) {
 
     if (!exists) {
         favourites.push(favourite);
-        console.log("Added to favourites:", favourite);
+        alert("Added to favourites");
     } else {
-        console.log("Item is already in favourites");
+        alert("Item is already in favourites");
     }
 
     // Update sessionStorage with the new favourites array
@@ -79,7 +79,74 @@ document.addEventListener('DOMContentLoaded', () => {
         price.textContent = item.price;
         div.appendChild(price);
 
+        const remove = document.createElement('button');
+        remove.textContent = "Remove";
+        div.appendChild(remove);
+        remove.addEventListener('click',()=>clickremove(item))
+
         favouriteContainer.appendChild(div);
     });
 }
 });
+function clickremove(item)
+{
+    const items = JSON.parse(sessionStorage.getItem('favourites')) || [];
+    const index = items.findIndex(fav => JSON.stringify(fav) === JSON.stringify(item));
+
+    if (index === -1) {
+        console.log("Item not exists!");
+    } else {
+        items.splice(index, 1);
+        sessionStorage.setItem('favourites', JSON.stringify(items));
+        console.log("Item removed");
+        window.location.reload();
+    }
+}
+const afterSearchContainer=document.querySelector('.aftersearch');
+
+const beforeSearchContainer=document.querySelector('.beforesearch');
+
+const search=document.querySelector('#search');
+
+const searchB=document.querySelector('#searchButton');
+let searchValues=""
+
+search.addEventListener('input',(e)=>{searchValues=e.target.value;console.log(searchValues)});
+
+
+searchB.addEventListener('click',(e)=>{
+    if(searchValues==null ||searchValues=="")
+    {
+        return;
+    }
+    afterSearchContainer.style.display="block";
+    beforeSearchContainer.style.display="none";
+    fetch(`/search/${searchValues}`, { method: 'GET' })
+    .then(res => {
+        if (!res.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return res.json();
+    })
+    .then(products => {
+        const container = afterSearchContainer.querySelector('.hotelpanel');
+        container.innerHTML = ''; // Clear previous search results
+        products.forEach(product => {
+            const productDiv = document.createElement('div');
+            productDiv.className = 'hotelsubpanel';
+            productDiv.innerHTML = `
+                <div class="hotelimage">
+                    <img src="${product.imgpath}" alt="${product.name}"/>
+                </div>
+                <div class="textarea">
+                    <h2>${product.name}</h2>
+                    <h3>${product.price}</h3>
+                    <button onclick="window.location.href='/destination'">Check Prices</button>
+                </div>
+            `;
+            container.append(productDiv);
+        });
+    })
+    .catch(e => console.log('Error:', e));
+});
+

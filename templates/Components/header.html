@@ -1,7 +1,7 @@
 <header>
     <div class="section1">
     <div class="logo">
-         <h3>Hotel Tiago</h3>
+         <h3 onclick="window.location.href='/'">Hotel Tiago</h3>
     </div>
    <nav>
        <h3>Recently Viewed</h3>
@@ -25,7 +25,7 @@
             <img src="/static/Assets/search-512.webp" width="30" height="30">
             <div class="destinationinput">
                 <h3>Destination</h3>
-                <input type="text" placeholder="Where to go?"/>
+                <input type="text" placeholder="Where to go?" id="search"/>
             </div>
          </div>
     </div>
@@ -47,7 +47,7 @@
             <input type="text" placeholder="2"/>
         </div>
         <div class="roomsection">   
-           <button>Search</button>
+           <button id="searchButton">Search</button>
         </div>
     </div>
 </div>

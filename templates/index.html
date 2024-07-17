@@ -8,7 +8,7 @@
 </head>
 <body>
     {% include 'Components/header.html' %}
-    <main>
+    <main class="beforesearch">
        <div class="backgroundsection">
            <img src="../static/Assets/background.webp"/>
        </div>
@@ -77,6 +77,44 @@
         </div>
      </div>
     </main>
+    <main class="aftersearch" style="display: none;">
+      <div class="hotelsection">
+         <h1>Your Searches</h1>
+         <div class="hotelpanel">
+            <!-- <div class="hotelsubpanel">
+               <div class="hotelimage">
+                  <img src="../static/Assets/panel1image1.avif"/>
+               </div>
+               <div class="textarea">
+                   <h2>Barcelona</h2>
+                   <h3>Pool && Spa</h3>
+                   <button onclick="window.location.href='/destination'">Check Prices</button>
+               </div>
+            </div>
+            <div class="hotelsubpanel">
+               <div class="hotelimage">
+                   <img src="../static/Assets/panel1image2.avif"/>
+               </div>
+               <div class="textarea">
+                   <h2>Alomar</h2>
+                   <h3>Pool && Spa</h3>
+                   <button onclick="window.location.href='/destination'">Check Prices</button>
+               </div>
+            </div>
+            <div class="hotelsubpanel">
+               <div class="hotelimage">
+                   <img src="../static/Assets/panel1image3.avif"/>
+               </div>
+               <div class="textarea">
+                   <h2>Valentine Cabillers</h2>
+                   <h3>Pool && Spa</h3>
+                   <button onclick="window.location.href='/destination'">Check Prices</button>
+               </div>
+            </div> -->
+         </div>
+      </div>
+     
+   </main>
     {% include 'Components/Footer.html' %}
     <script src="static/js/index.js"></script>
 </body>

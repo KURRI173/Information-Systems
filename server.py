@@ -42,10 +42,19 @@ def login():
                return render_template('login.html',message="Wrong password")
             else:
                session['user']=user['email']
-               print(session['user'])
                return render_template('index.html',message="logout")
 
    return render_template('login.html',message="")
+
+@app.route("/search/<ID>")
+def search(ID):
+    products = product_collection.find({"name": {'$regex': ID, '$options': 'i'}})
+    result = []
+    for product in products:
+        product['_id'] = str(product['_id'])  
+        result.append(product)
+        print(result)
+    return jsonify(result), 200
 
 
 @app.route('/register' ,methods=['GET','POST'])
@@ -90,22 +99,20 @@ def checkForValidationRegister(name,email,password,confirmPassword):
    
 @app.route('/favourites',methods=['GET','POST'])
 def favourites():
-   path=request.args.get('name')
-   if(session['user']):
+   if(session.get('user')):
          return render_template('favourites.html',message='Logout')
    return render_template('favourites.html',message='')
 
 @app.route('/destination')
 def destination():
-   path=request.args.get('name')
-   if(session['user']):
+   if(session.get('user')):
       return render_template('destinationpage.html',message='Logout')
    return render_template('destinationpage.html',message='')
 
 @app.route('/famous')
 def famous():
    path=request.args.get('name')
-   if(session['user']!=''):
+   if(session.get('user')):
          return render_template('famoussearches.html',message='Logout')
    return render_template('famoussearches.html')
 
@@ -114,6 +121,24 @@ def famous():
 def logout():
    session['user']=''
    return render_template('index.html')
+
+
+product_collection = db['products']  
+
+@app.route('/addproducts', methods=['POST'])
+def add_products():
+    ProductCollection = [
+        {"name": "Barcelona", "price": "$200", "imgpath": "static/Assets/panel1image1.avif"},
+        {"name": "Alomar", "price": "$1200", "imgpath": "static/Assets/panel1image2.avif"},
+        {"name": "Valentine Cabillers", "price": "$800", "imgpath": "static/Assets/panel1image3.avif"},
+        {"name": "Cork", "price": "$200", "imgpath": "static/Assets/panel2img1.avif"},
+        {"name": "Newyork", "price": "$1200", "imgpath": "static/Assets/panel2img2.avif"},
+        {"name": "Sand", "price": "$1100", "imgpath": "static/Assets/panel2img3.avif"},
+        {"name": "San fransisco", "price": "$1800", "imgpath": "static/Assets/panel2img4.avif"},
+    ]
+    
+    result = product_collection.insert_many(ProductCollection)
+    return jsonify({"message": f"Inserted {len(result.inserted_ids)} documents into the products collection."}), 200
 
 
 if __name__ == '__main__':

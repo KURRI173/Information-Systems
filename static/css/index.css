@@ -207,8 +207,9 @@ input::placeholder
   justify-content: space-between;
   align-items: center;
   width: 80%;
-
+  flex-wrap: wrap;
   height: auto;
+  
 }
 .hotelsection
 {
@@ -218,6 +219,7 @@ input::placeholder
   flex-direction: column;
   margin-top: 30px;
   margin-bottom: 100px;
+
 }
 .hotelsection h1
 {
@@ -235,6 +237,7 @@ input::placeholder
   align-items: center;
   flex-direction: column;
   border:1px solid rgba(0, 0, 0, 0.121);
+  margin-top: 20px;
 }
 .hotelpanel .hotelsubpanel2
 {
@@ -303,6 +306,9 @@ footer
   background-color: rgb(12, 12, 58);
   margin-top: 0px;
   color: white;
+  min-height: 40vh;
+  height: auto;
+  margin-bottom: 0px;
 }
 footer .footersection
 {
